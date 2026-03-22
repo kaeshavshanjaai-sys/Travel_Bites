@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read reviews from WorldTourer travelers — real stories from our community of explorers.">
+    <title>Reviews — WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">✈</span><span class="logo-text">World<span class="logo-accent">Tourer</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="testimonials.html" class="nav-link active">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link nav-cta">Book Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-tag">TRAVELER STORIES</span>
+            <h1 class="section-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-top: 16px;">What Travelers <span class="gradient-text">Say</span></h1>
+            <p class="section-desc" style="margin-top: 16px;">Real stories from our community of explorers around the globe</p>
+        </div>
+    </section>
+
+    <!-- Featured Review -->
+    <section class="section" style="padding-top: 40px;">
+        <div class="container">
+            <div class="featured-review animate-on-scroll">
+                <div class="featured-review-quote">"</div>
+                <p class="featured-review-text">WorldTourer completely transformed how we travel. Their attention to detail is unmatched — from the private airport transfer to the candlelit dinner on the beach, every moment was carefully crafted. We've booked 3 trips with them and each one topped the last.</p>
+                <div class="featured-review-author">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ff6b6b, #ffd93d); width: 56px; height: 56px; font-size: 1.1rem;">SA</div>
+                    <div>
+                        <h4 style="font-family: var(--font-heading); font-size: 1.1rem;">Sarah Anderson</h4>
+                        <span style="color: var(--text-muted);">Bali & Santorini Trips, 2025</span>
+                        <div style="margin-top: 4px;">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CAROUSEL</span>
+                <h2 class="section-title">More <span class="gradient-text">Reviews</span></h2>
+            </div>
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"The Paris package exceeded all expectations. The sunset cruise on the Seine was a dream come true."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #4ecdc4, #44a8ff);">MK</div>
+                            <div><h4>Michael Kim</h4><span>Paris Trip, 2025</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Tokyo was incredible! The blend of modern and traditional Japan, the food tours, and the cherry blossom walks were phenomenal."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">EP</div>
+                            <div><h4>Emily Parker</h4><span>Tokyo Trip, 2024</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Dubai was an unforgettable adventure. The desert safari, luxury hotels, and the sheer scale of everything blew our minds."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f97316, #eab308);">RP</div>
+                            <div><h4>Raj Patel</h4><span>Dubai Trip, 2025</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn" id="prevTestimonial" aria-label="Previous"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                    <div class="testimonial-dots" id="testimonialDots"></div>
+                    <button class="testimonial-btn" id="nextTestimonial" aria-label="Next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Reviews Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ALL REVIEWS</span>
+                <h2 class="section-title">Traveler <span class="gradient-text">Feedback</span></h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card animate-on-scroll">
+                    <div class="review-header">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">LT</div>
+                        <div><h4>Lena Torres</h4><span>New York Trip</span></div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p>"NYC was magical! The Broadway show tickets, rooftop dinner, and helicopter tour over Manhattan — all seamlessly organized."</p>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="review-header">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">JW</div>
+                        <div><h4>James Wong</h4><span>Bali Honeymoon</span></div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p>"Our Bali honeymoon was pure magic. The private villa with an infinity pool overlooking the jungle was jaw-dropping."</p>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="review-header">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f43f5e, #fb923c);">CM</div>
+                        <div><h4>Claire Martin</h4><span>Santorini Getaway</span></div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p>"The Santorini sunset was even better than the photos. WorldTourer booked us the perfect caldera-view suite."</p>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="review-header">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #22c55e, #0ea5e9);">AS</div>
+                        <div><h4>Arjun Singh</h4><span>Dubai Family Trip</span></div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p>"Took the whole family to Dubai. Theme parks, desert safari, and the aquarium — the kids are still talking about it!"</p>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="review-header">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #eab308, #ef4444);">NY</div>
+                        <div><h4>Naomi Yamada</h4><span>Tokyo Cherry Blossom</span></div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p>"Visiting Japan during cherry blossom season was a lifelong dream. WorldTourer made it perfect in every way."</p>
+                </div>
+                <div class="review-card animate-on-scroll">
+                    <div class="review-header">
+                        <div class="testimonial-avatar" style="background: linear-gradient(135deg, #a78bfa, #60a5fa);">TB</div>
+                        <div><h4>Thomas Brown</h4><span>Paris Anniversary</span></div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p>"Surprised my wife with a Paris anniversary trip through WorldTourer. The Michelin-star dinner was the highlight!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="newsletter-card animate-on-scroll" style="text-align: center;">
+                <div class="newsletter-content" style="flex: none; width: 100%;">
+                    <h2>Join 25,000+ Happy Travelers</h2>
+                    <p style="margin-bottom: 24px;">Start your own WorldTourer story today</p>
+                    <a href="booking.html" class="btn btn-primary">Plan Your Trip →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><span class="logo-icon">✈</span><span class="logo-text">World<span class="logo-accent">Tourer</span></span></a>
+                    <p>Making your travel dreams come true since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links"><h4>Explore</h4><a href="destinations.html">Destinations</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a></div>
+                <div class="footer-links"><h4>Support</h4><a href="contact.html">Contact Us</a><a href="#">Help Center</a><a href="#">Privacy Policy</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 WorldTourer. All rights reserved.</p></div>
+        </div>
+    </footer>
+    
+</body>
+</html>

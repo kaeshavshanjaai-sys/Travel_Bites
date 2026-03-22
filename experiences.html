@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch cinematic travel films from around the world — immerse yourself in stunning destinations before you visit.">
+    <title>Experiences — WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">✈</span>
+                <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+                <li><a href="experiences.html" class="nav-link active">Experiences</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="testimonials.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link nav-cta">Book Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO WITH VIDEO ===== -->
+    <section class="page-hero page-hero-tall">
+        <div class="page-hero-video-wrapper">
+            <video autoplay muted loop playsinline class="page-hero-video">
+                <source src="https://videos.pexels.com/video-files/1409899/1409899-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <span class="section-tag">TRAVEL FILMS</span>
+            <h1 class="section-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-top: 16px;">
+                Experience The <span class="gradient-text">Journey</span>
+            </h1>
+            <p class="section-desc" style="margin-top: 16px;">Watch cinematic travel videos that will ignite your wanderlust</p>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED VIDEO ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FEATURED</span>
+                <h2 class="section-title">Our <span class="gradient-text">Top Film</span></h2>
+                <p class="section-desc">Immerse yourself in this cinematic journey through Bali</p>
+            </div>
+            <div class="featured-video-card animate-on-scroll">
+                <div class="video-wrapper" style="height: 500px; border-radius: var(--radius-xl); overflow: hidden;">
+                    <video muted loop playsinline class="showcase-video" poster="images/bali.png" style="border-radius: var(--radius-xl);">
+                        <source src="https://videos.pexels.com/video-files/1093662/1093662-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-card-overlay" style="border-radius: var(--radius-xl);">
+                        <button class="video-play-btn" aria-label="Play video" style="width: 80px; height: 80px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </button>
+                        <div class="video-card-info">
+                            <span class="video-card-tag">ADVENTURE • 2:30</span>
+                            <h3 style="font-size: 2rem;">Island Paradise — Bali, Indonesia</h3>
+                            <p>Discover the hidden gems of Indonesia's most mystical island, from sacred temples to untouched beaches</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIDEO GRID ===== -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ALL FILMS</span>
+                <h2 class="section-title">Travel <span class="gradient-text">Collection</span></h2>
+                <p class="section-desc">Explore our curated library of destination films</p>
+            </div>
+            <div class="video-grid video-grid-uniform">
+                <!-- Video Card 1 -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline class="showcase-video" poster="images/paris.png">
+                            <source src="https://videos.pexels.com/video-files/2519660/2519660-uhd_2560_1440_24fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-card-overlay">
+                            <button class="video-play-btn" aria-label="Play video">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                            <div class="video-card-info">
+                                <span class="video-card-tag">ROMANCE • 1:45</span>
+                                <h3>Parisian Nights</h3>
+                                <p>A love letter to the City of Light</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline class="showcase-video" poster="images/santorini.png">
+                            <source src="https://videos.pexels.com/video-files/4253249/4253249-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-card-overlay">
+                            <button class="video-play-btn" aria-label="Play video">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                            <div class="video-card-info">
+                                <span class="video-card-tag">CULTURE • 2:10</span>
+                                <h3>Greek Sunsets</h3>
+                                <p>The magic of Santorini's golden hour</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline class="showcase-video" poster="images/newyork.png">
+                            <source src="https://videos.pexels.com/video-files/2611510/2611510-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-card-overlay">
+                            <button class="video-play-btn" aria-label="Play video">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                            <div class="video-card-info">
+                                <span class="video-card-tag">URBAN • 1:55</span>
+                                <h3>NYC After Dark</h3>
+                                <p>The electric energy of Manhattan at night</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 4 -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline class="showcase-video" poster="images/tokyo.png">
+                            <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-card-overlay">
+                            <button class="video-play-btn" aria-label="Play video">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                            <div class="video-card-info">
+                                <span class="video-card-tag">NATURE • 3:20</span>
+                                <h3>Coastal Wonders</h3>
+                                <p>Where ocean meets paradise</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 5 -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline class="showcase-video" poster="images/dubai.png">
+                            <source src="https://videos.pexels.com/video-files/4936236/4936236-hd_1920_1080_25fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-card-overlay">
+                            <button class="video-play-btn" aria-label="Play video">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                            <div class="video-card-info">
+                                <span class="video-card-tag">AERIAL • 2:45</span>
+                                <h3>Forest to Ocean</h3>
+                                <p>A drone journey through untouched nature</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Card 6 -->
+                <div class="video-card animate-on-scroll">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline class="showcase-video" poster="images/bali.png">
+                            <source src="https://videos.pexels.com/video-files/1409899/1409899-uhd_2560_1440_25fps.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-card-overlay">
+                            <button class="video-play-btn" aria-label="Play video">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                            <div class="video-card-info">
+                                <span class="video-card-tag">RELAXATION • 2:00</span>
+                                <h3>Beach Bliss</h3>
+                                <p>The serenity of crystal clear waters</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="video-divider" style="height: 350px;">
+        <video autoplay muted loop playsinline class="divider-video">
+            <source src="https://videos.pexels.com/video-files/4936236/4936236-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="divider-overlay"></div>
+        <div class="divider-content">
+            <h2 class="divider-title animate-on-scroll">Inspired? Let's Make It Real</h2>
+            <p class="divider-desc animate-on-scroll">Book your dream destination today</p>
+            <a href="booking.html" class="btn btn-primary animate-on-scroll">Book Your Trip →</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="logo-icon">✈</span>
+                        <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
+                    </a>
+                    <p>Making your travel dreams come true since 2020. Premium experiences, unforgettable adventures.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="experiences.html">Travel Films</a>
+                    <a href="about.html">About Us</a>
+                    <a href="testimonials.html">Reviews</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WorldTourer. All rights reserved. Made with ❤️ for travel lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

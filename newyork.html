@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore New York City, USA — the city that never sleeps with iconic skylines, Broadway, and endless excitement.">
+    <title>New York, USA — WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">✈</span><span class="logo-text">World<span class="logo-accent">Tourer</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="testimonials.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link nav-cta">Book Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="dest-hero">
+        <div class="dest-hero-video-wrapper">
+            <video autoplay muted loop playsinline class="dest-hero-video">
+                <source src="videos/newyork.mp4" type="video/mp4">
+            </video>
+            <div class="dest-hero-overlay"></div>
+        </div>
+        <div class="dest-hero-content">
+            <span class="section-tag">🗽 NORTH AMERICA</span>
+            <h1 class="dest-hero-title">New York, <span class="gradient-text">USA</span></h1>
+            <p class="dest-hero-subtitle">The City That Never Sleeps — Iconic Skyline & Endless Energy</p>
+            <div class="dest-hero-meta">
+                <div class="dest-meta-item"><span class="dest-meta-icon">⭐</span><span>4.8 Rating</span></div>
+                <div class="dest-meta-item"><span class="dest-meta-icon">💰</span><span>From ₹999</span></div>
+                <div class="dest-meta-item"><span class="dest-meta-icon">🌤️</span><span id="weatherBadge">Loading...</span></div>
+                <div class="dest-meta-item"><span class="dest-meta-icon">📅</span><span>Best: Sep–Nov</span></div>
+            </div>
+            <a href="booking.html" class="btn btn-primary" style="margin-top: 24px;">Book NYC Trip →</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="dest-detail-grid">
+                <div class="dest-detail-content animate-on-scroll">
+                    <span class="section-tag">ABOUT NEW YORK</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; margin: 16px 0;">The Big <span class="gradient-text">Apple</span></h2>
+                    <p>New York City is the world's cultural capital — a city of towering ambition and incredible diversity. From the neon glow of Times Square to the green oasis of Central Park, NYC is endlessly fascinating.</p>
+                    <p>Catch a Broadway show, visit world-class museums like the Met and MoMA, and feast on cuisines from every corner of the globe. Walk across the Brooklyn Bridge at sunset for unforgettable views.</p>
+                    <p>Every neighborhood tells a different story — from the artsy vibes of SoHo to the historic charm of Greenwich Village and the bustling energy of Chinatown.</p>
+                </div>
+                <div class="dest-detail-image animate-on-scroll"><img src="images/newyork.png" alt="New York City skyline"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">HIGHLIGHTS</span><h2 class="section-title">What To <span class="gradient-text">Experience</span></h2></div>
+            <div class="highlights-grid">
+                <div class="highlight-card animate-on-scroll"><div class="highlight-icon">🎭</div><h3>Broadway Shows</h3><p>See world-famous musicals and plays in the Theater District</p></div>
+                <div class="highlight-card animate-on-scroll"><div class="highlight-icon">🏙️</div><h3>Empire State</h3><p>Panoramic views from the top of one of the world's most iconic buildings</p></div>
+                <div class="highlight-card animate-on-scroll"><div class="highlight-icon">🌳</div><h3>Central Park</h3><p>843 acres of green space for walking, biking, and boat rides</p></div>
+                <div class="highlight-card animate-on-scroll"><div class="highlight-icon">🗽</div><h3>Statue of Liberty</h3><p>Visit America's most iconic symbol of freedom and democracy</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">CHOOSE YOUR PACKAGE</span><h2 class="section-title">NYC <span class="gradient-text">Packages</span></h2></div>
+            <div class="package-grid">
+                <div class="package-card animate-on-scroll"><div class="package-badge">🌟 Standard</div><h3>Manhattan</h3><div class="package-price"><span>₹999</span><small>/person</small></div><ul class="package-features"><li>✓ 4 nights Times Square</li><li>✓ Airport transfers</li><li>✓ City bus tour</li><li>✓ Breakfast included</li></ul><a href="booking.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Select Package</a></div>
+                <div class="package-card package-featured animate-on-scroll"><div class="package-badge">💎 Premium</div><h3>Broadway</h3><div class="package-price"><span>₹1,899</span><small>/person</small></div><ul class="package-features"><li>✓ 6 nights boutique hotel</li><li>✓ Private transfers</li><li>✓ 2 Broadway shows</li><li>✓ All meals included</li><li>✓ Liberty Island VIP</li></ul><a href="booking.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Select Package</a></div>
+                <div class="package-card animate-on-scroll"><div class="package-badge">👑 Luxury</div><h3>Penthouse</h3><div class="package-price"><span>₹3,999</span><small>/person</small></div><ul class="package-features"><li>✓ 8 nights 5-star suite</li><li>✓ Limo service</li><li>✓ Private helicopter tour</li><li>✓ Michelin dining</li><li>✓ VIP experiences</li></ul><a href="booking.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Select Package</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">EXPLORE MORE</span><h2 class="section-title">Other <span class="gradient-text">Destinations</span></h2></div>
+            <div class="destinations-grid">
+                <a href="paris.html" class="dest-card animate-on-scroll" style="text-decoration:none;color:inherit;"><div class="dest-card-img"><img src="images/paris.png" alt="Paris" loading="lazy"></div><div class="dest-card-body"><h3 class="dest-card-title">Paris, France</h3><div class="dest-card-footer"><div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,199</span></div><div class="dest-rating"><span>⭐</span><span>4.8</span></div></div></div></a>
+                <a href="dubai.html" class="dest-card animate-on-scroll" style="text-decoration:none;color:inherit;"><div class="dest-card-img"><img src="images/dubai.png" alt="Dubai" loading="lazy"></div><div class="dest-card-body"><h3 class="dest-card-title">Dubai, UAE</h3><div class="dest-card-footer"><div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,499</span></div><div class="dest-rating"><span>⭐</span><span>4.9</span></div></div></div></a>
+                <a href="bali.html" class="dest-card animate-on-scroll" style="text-decoration:none;color:inherit;"><div class="dest-card-img"><img src="images/bali.png" alt="Bali" loading="lazy"></div><div class="dest-card-body"><h3 class="dest-card-title">Bali, Indonesia</h3><div class="dest-card-footer"><div class="dest-price"><span class="price-from">From</span><span class="price-value">₹899</span></div><div class="dest-rating"><span>⭐</span><span>4.9</span></div></div></div></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="index.html" class="nav-logo"><span class="logo-icon">✈</span><span class="logo-text">World<span class="logo-accent">Tourer</span></span></a><p>Making your travel dreams come true since 2020.</p></div><div class="footer-links"><h4>Explore</h4><a href="destinations.html">Destinations</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a></div><div class="footer-links"><h4>Support</h4><a href="contact.html">Contact Us</a><a href="#">Help Center</a><a href="#">Privacy Policy</a></div></div><div class="footer-bottom"><p>&copy; 2026 WorldTourer. All rights reserved.</p></div></div></footer>
+    
+    
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about WorldTourer — our mission, values, team, and why we're the #1 choice for premium travel experiences worldwide.">
+    <title>About Us — WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">✈</span>
+                <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="testimonials.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link nav-cta">Book Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-tag">OUR STORY</span>
+            <h1 class="section-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-top: 16px;">
+                About <span class="gradient-text">WorldTourer</span>
+            </h1>
+            <p class="section-desc" style="margin-top: 16px;">Crafting extraordinary travel experiences since 2020</p>
+        </div>
+    </section>
+
+    <!-- ===== STORY SECTION ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="about-story-grid">
+                <div class="about-story-content animate-on-scroll">
+                    <span class="section-tag" style="margin-bottom: 20px; display: inline-block;">OUR MISSION</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 20px; line-height: 1.3;">
+                        We Believe Travel <br><span class="gradient-text">Transforms Lives</span>
+                    </h2>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px;">
+                        WorldTourer was born from a simple idea: everyone deserves to experience the world's most beautiful places without the stress of planning. We combine local expertise with premium service to create journeys that go beyond typical tourism.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px;">
+                        Our team of travel experts personally visits every destination, hand-picks every hotel, and tests every experience before recommending it to you. That's our promise — authentic, curated, unforgettable.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        From hidden beach coves in Bali to rooftop dining in Paris, we know the secret spots that make a trip truly magical. Let us show you the world as it was meant to be seen.
+                    </p>
+                </div>
+                <div class="about-story-images animate-on-scroll">
+                    <div class="about-img-stack">
+                        <img src="images/bali.png" alt="Bali beach" class="about-img about-img-1">
+                        <img src="images/santorini.png" alt="Santorini" class="about-img about-img-2">
+                        <img src="images/tokyo.png" alt="Tokyo" class="about-img about-img-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIDEO DIVIDER ===== -->
+    <section class="video-divider">
+        <video autoplay muted loop playsinline class="divider-video">
+            <source src="videos/santorini.mp4" type="video/mp4">
+        </video>
+        <div class="divider-overlay"></div>
+        <div class="divider-content">
+            <h2 class="divider-title animate-on-scroll">Life Is Short And The World Is Wide</h2>
+            <p class="divider-desc animate-on-scroll">Let us be your guide to extraordinary adventures</p>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="section stats-section" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">BY THE NUMBERS</span>
+                <h2 class="section-title">Our <span class="gradient-text">Impact</span></h2>
+                <p class="section-desc">The numbers speak for themselves</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">Destinations</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-icon">😊</div>
+                    <div class="stat-number" data-target="25000">0</div>
+                    <div class="stat-label">Happy Travelers</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Awards Won</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number" data-target="4900">0</div>
+                    <div class="stat-label">5-Star Reviews</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VALUES ===== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">WHAT DRIVES US</span>
+                <h2 class="section-title">Our <span class="gradient-text">Values</span></h2>
+                <p class="section-desc">The principles behind every journey we craft</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🤝</div>
+                    <h3>Authenticity</h3>
+                    <p>We connect you with genuine local experiences, not tourist traps. Real culture, real connections, real memories.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">💫</div>
+                    <h3>Excellence</h3>
+                    <p>Every detail matters — from the thread count of your sheets to the sunset view from your balcony.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>We partner with eco-friendly resorts and contribute to conservation efforts at every destination.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">❤️</div>
+                    <h3>Passion</h3>
+                    <p>Our team doesn't just plan trips — we're travelers at heart who pour love into every itinerary.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">THE TEAM</span>
+                <h2 class="section-title">Meet The <span class="gradient-text">Explorers</span></h2>
+                <p class="section-desc">The passionate team behind your perfect trips</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #ff6b6b, #ffd93d);">AK</div>
+                    <h3>Aisha Khan</h3>
+                    <span class="team-role">Founder & CEO</span>
+                    <p>15+ years of travel industry experience. Visited 80+ countries and counting.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #4ecdc4, #44a8ff);">MR</div>
+                    <h3>Marco Rossi</h3>
+                    <span class="team-role">Head of Experiences</span>
+                    <p>Former adventure photographer. Curates every experience with an artist's eye.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #a855f7, #ec4899);">SN</div>
+                    <h3>Sakura Nakamura</h3>
+                    <span class="team-role">Asia Specialist</span>
+                    <p>Raised in Tokyo, travelled all of Asia. Knows the best hidden gems across the continent.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #f97316, #eab308);">DP</div>
+                    <h3>David Park</h3>
+                    <span class="team-role">Luxury Concierge</span>
+                    <p>Expert in premium travel. Ensures every 5-star experience exceeds expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="newsletter-card animate-on-scroll" style="text-align: center;">
+                <div class="newsletter-content" style="flex: none; width: 100%;">
+                    <h2>Ready to Start Your Journey?</h2>
+                    <p style="margin-bottom: 24px;">Let our expert team craft your perfect trip</p>
+                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                        <a href="booking.html" class="btn btn-primary">Book a Trip →</a>
+                        <a href="contact.html" class="btn btn-outline">Contact Us →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="logo-icon">✈</span>
+                        <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
+                    </a>
+                    <p>Making your travel dreams come true since 2020. Premium experiences, unforgettable adventures.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="testimonials.html">Reviews</a>
+                    <a href="about.html">About Us</a>
+                    <a href="testimonials.html">Reviews</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WorldTourer. All rights reserved. Made with ❤️ for travel lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Bali, Indonesia — tropical paradise with ancient temples, emerald rice terraces, and pristine beaches.">
+    <title>Bali, Indonesia — WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-icon">✈</span><span class="logo-text">World<span class="logo-accent">Tourer</span></span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="destinations.html" class="nav-link">Destinations</a></li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="testimonials.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link nav-cta">Book Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO WITH VIDEO ===== -->
+    <section class="dest-hero">
+        <div class="dest-hero-video-wrapper">
+            <video autoplay muted loop playsinline class="dest-hero-video">
+                <source src="videos/bali.mp4" type="video/mp4">
+            </video>
+            <div class="dest-hero-overlay"></div>
+        </div>
+        <div class="dest-hero-content">
+            <span class="section-tag">🏝️ ASIA</span>
+            <h1 class="dest-hero-title">Bali, <span class="gradient-text">Indonesia</span></h1>
+            <p class="dest-hero-subtitle">Tropical Paradise of Ancient Temples & Pristine Beaches</p>
+            <div class="dest-hero-meta">
+                <div class="dest-meta-item"><span class="dest-meta-icon">⭐</span><span>4.9 Rating</span></div>
+                <div class="dest-meta-item"><span class="dest-meta-icon">💰</span><span>From ₹899</span></div>
+                <div class="dest-meta-item"><span class="dest-meta-icon">🌤️</span><span id="weatherBadge">Loading...</span></div>
+                <div class="dest-meta-item"><span class="dest-meta-icon">📅</span><span>Best: Apr–Oct</span></div>
+            </div>
+            <a href="booking.html" class="btn btn-primary" style="margin-top: 24px;">Book Bali Trip →</a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT THIS DESTINATION ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="dest-detail-grid">
+                <div class="dest-detail-content animate-on-scroll">
+                    <span class="section-tag">ABOUT BALI</span>
+                    <h2 style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; margin: 16px 0;">A Living <span class="gradient-text">Postcard</span></h2>
+                    <p>Bali is a living postcard, an Indonesian paradise that feels like a fantasy. Soak up the sun on a stretch of fine white sand, or commune with the tropical creatures as you dive along colorful coral reefs.</p>
+                    <p>On shore, the lush terraced rice fields, pulsing with vivid green, are nothing short of magnificent. Balinese temple ceremonies are colorful and fascinating, and the island's art scene is thriving.</p>
+                    <p>Whether you're seeking adventure, relaxation, or spiritual enlightenment, Bali offers it all in an enchanting tropical setting.</p>
+                </div>
+                <div class="dest-detail-image animate-on-scroll">
+                    <img src="images/bali.png" alt="Bali rice terraces">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HIGHLIGHTS ===== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">HIGHLIGHTS</span>
+                <h2 class="section-title">What To <span class="gradient-text">Experience</span></h2>
+            </div>
+            <div class="highlights-grid">
+                <div class="highlight-card animate-on-scroll">
+                    <div class="highlight-icon">🛕</div>
+                    <h3>Sacred Temples</h3>
+                    <p>Visit Tanah Lot, Uluwatu, and the enchanting Tirta Empul water temple</p>
+                </div>
+                <div class="highlight-card animate-on-scroll">
+                    <div class="highlight-icon">🌾</div>
+                    <h3>Rice Terraces</h3>
+                    <p>Walk through the iconic Tegallalang terraces — a UNESCO heritage landscape</p>
+                </div>
+                <div class="highlight-card animate-on-scroll">
+                    <div class="highlight-icon">🤿</div>
+                    <h3>Diving & Snorkeling</h3>
+                    <p>Explore vibrant coral reefs and swim with manta rays at Nusa Penida</p>
+                </div>
+                <div class="highlight-card animate-on-scroll">
+                    <div class="highlight-icon">🧘</div>
+                    <h3>Yoga & Wellness</h3>
+                    <p>Rejuvenate at world-class spas and yoga retreats in Ubud</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PACKAGES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CHOOSE YOUR PACKAGE</span>
+                <h2 class="section-title">Bali <span class="gradient-text">Packages</span></h2>
+            </div>
+            <div class="package-grid">
+                <div class="package-card animate-on-scroll">
+                    <div class="package-badge">🌟 Standard</div>
+                    <h3>Explorer</h3>
+                    <div class="package-price"><span>₹899</span><small>/person</small></div>
+                    <ul class="package-features">
+                        <li>✓ 5 nights accommodation</li>
+                        <li>✓ Airport transfers</li>
+                        <li>✓ 3 guided tours</li>
+                        <li>✓ Breakfast included</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Select Package</a>
+                </div>
+                <div class="package-card package-featured animate-on-scroll">
+                    <div class="package-badge">💎 Premium</div>
+                    <h3>Paradise</h3>
+                    <div class="package-price"><span>₹1,499</span><small>/person</small></div>
+                    <ul class="package-features">
+                        <li>✓ 7 nights luxury villa</li>
+                        <li>✓ Private transfers</li>
+                        <li>✓ 5 premium experiences</li>
+                        <li>✓ All meals included</li>
+                        <li>✓ Spa treatments</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-primary" style="width: 100%; justify-content: center;">Select Package</a>
+                </div>
+                <div class="package-card animate-on-scroll">
+                    <div class="package-badge">👑 Luxury</div>
+                    <h3>Royal Retreat</h3>
+                    <div class="package-price"><span>₹2,999</span><small>/person</small></div>
+                    <ul class="package-features">
+                        <li>✓ 10 nights private villa</li>
+                        <li>✓ Helicopter transfers</li>
+                        <li>✓ Unlimited experiences</li>
+                        <li>✓ Private chef</li>
+                        <li>✓ 24/7 concierge</li>
+                    </ul>
+                    <a href="booking.html" class="btn btn-outline" style="width: 100%; justify-content: center;">Select Package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MORE DESTINATIONS ===== -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">EXPLORE MORE</span>
+                <h2 class="section-title">Other <span class="gradient-text">Destinations</span></h2>
+            </div>
+            <div class="destinations-grid">
+                <a href="paris.html" class="dest-card animate-on-scroll" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img"><img src="images/paris.png" alt="Paris" loading="lazy"></div>
+                    <div class="dest-card-body">
+                        <h3 class="dest-card-title">Paris, France</h3>
+                        <div class="dest-card-footer"><div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,199</span></div><div class="dest-rating"><span>⭐</span><span>4.8</span></div></div>
+                    </div>
+                </a>
+                <a href="tokyo.html" class="dest-card animate-on-scroll" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img"><img src="images/tokyo.png" alt="Tokyo" loading="lazy"></div>
+                    <div class="dest-card-body">
+                        <h3 class="dest-card-title">Tokyo, Japan</h3>
+                        <div class="dest-card-footer"><div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,349</span></div><div class="dest-rating"><span>⭐</span><span>4.9</span></div></div>
+                    </div>
+                </a>
+                <a href="santorini.html" class="dest-card animate-on-scroll" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img"><img src="images/santorini.png" alt="Santorini" loading="lazy"></div>
+                    <div class="dest-card-body">
+                        <h3 class="dest-card-title">Santorini, Greece</h3>
+                        <div class="dest-card-footer"><div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,099</span></div><div class="dest-rating"><span>⭐</span><span>4.7</span></div></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><span class="logo-icon">✈</span><span class="logo-text">World<span class="logo-accent">Tourer</span></span></a>
+                    <p>Making your travel dreams come true since 2020.</p>
+                </div>
+                <div class="footer-links"><h4>Explore</h4><a href="destinations.html">Destinations</a><a href="about.html">About Us</a><a href="testimonials.html">Reviews</a></div>
+                <div class="footer-links"><h4>Support</h4><a href="contact.html">Contact Us</a><a href="#">Help Center</a><a href="#">Privacy Policy</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 WorldTourer. All rights reserved.</p></div>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>

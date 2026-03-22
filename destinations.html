@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore stunning travel destinations worldwide — filter by region, view details, and check live weather.">
+    <title>Destinations — WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">✈</span>
+                <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="destinations.html" class="nav-link active">Destinations</a></li>
+
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="testimonials.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-link nav-cta">Book Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-tag">WORLD EXPLORER</span>
+            <h1 class="section-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-top: 16px;">
+                Discover Your Next <span class="gradient-text">Adventure</span>
+            </h1>
+            <p class="section-desc" style="margin-top: 16px;">Browse destinations by region and find your perfect getaway</p>
+        </div>
+    </section>
+
+    <!-- ===== FILTER & DESTINATIONS ===== -->
+    <section class="section" style="padding-top: 40px;">
+        <div class="container">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">🌎 All</button>
+                <button class="filter-btn" data-filter="asia">🏯 Asia</button>
+                <button class="filter-btn" data-filter="europe">🏰 Europe</button>
+                <button class="filter-btn" data-filter="americas">🗽 Americas</button>
+                <button class="filter-btn" data-filter="middle-east">🕌 Middle East</button>
+            </div>
+
+            <div class="destinations-grid">
+                <!-- Bali -->
+                <a href="bali.html" class="dest-card animate-on-scroll" data-category="asia" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img">
+                        <img src="images/bali.png" alt="Bali, Indonesia" loading="lazy">
+                        <div class="dest-card-overlay"><span class="dest-badge">🔥 Trending</span></div>
+                    </div>
+                    <div class="dest-card-body">
+                        <div class="dest-card-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Bali, Indonesia</span>
+                        </div>
+                        <h3 class="dest-card-title">Tropical Paradise</h3>
+                        <p class="dest-card-desc">Ancient temples, emerald rice terraces, and pristine beaches await.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price"><span class="price-from">From</span><span class="price-value">₹899</span></div>
+                            <div class="dest-rating"><span>⭐</span><span>4.9</span></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Paris -->
+                <a href="paris.html" class="dest-card animate-on-scroll" data-category="europe" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img">
+                        <img src="images/paris.png" alt="Paris, France" loading="lazy">
+                        <div class="dest-card-overlay"><span class="dest-badge dest-badge-popular">❤️ Popular</span></div>
+                    </div>
+                    <div class="dest-card-body">
+                        <div class="dest-card-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Paris, France</span>
+                        </div>
+                        <h3 class="dest-card-title">City of Love</h3>
+                        <p class="dest-card-desc">Romance, art, cuisine, and the iconic Eiffel Tower magic.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,199</span></div>
+                            <div class="dest-rating"><span>⭐</span><span>4.8</span></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tokyo -->
+                <a href="tokyo.html" class="dest-card animate-on-scroll" data-category="asia" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img">
+                        <img src="images/tokyo.png" alt="Tokyo, Japan" loading="lazy">
+                        <div class="dest-card-overlay"><span class="dest-badge dest-badge-new">✨ New</span></div>
+                    </div>
+                    <div class="dest-card-body">
+                        <div class="dest-card-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Tokyo, Japan</span>
+                        </div>
+                        <h3 class="dest-card-title">Neon & Tradition</h3>
+                        <p class="dest-card-desc">Where ancient temples meet futuristic cityscapes and cherry blossoms.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,349</span></div>
+                            <div class="dest-rating"><span>⭐</span><span>4.9</span></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Santorini -->
+                <a href="santorini.html" class="dest-card animate-on-scroll" data-category="europe" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img">
+                        <img src="images/santorini.png" alt="Santorini, Greece" loading="lazy">
+                        <div class="dest-card-overlay"><span class="dest-badge">🔥 Trending</span></div>
+                    </div>
+                    <div class="dest-card-body">
+                        <div class="dest-card-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Santorini, Greece</span>
+                        </div>
+                        <h3 class="dest-card-title">Aegean Dream</h3>
+                        <p class="dest-card-desc">White-washed villages, sapphire seas, and legendary sunsets.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,099</span></div>
+                            <div class="dest-rating"><span>⭐</span><span>4.7</span></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- New York -->
+                <a href="newyork.html" class="dest-card animate-on-scroll" data-category="americas" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img">
+                        <img src="images/newyork.png" alt="New York, USA" loading="lazy">
+                        <div class="dest-card-overlay"><span class="dest-badge dest-badge-popular">❤️ Popular</span></div>
+                    </div>
+                    <div class="dest-card-body">
+                        <div class="dest-card-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>New York, USA</span>
+                        </div>
+                        <h3 class="dest-card-title">The Big Apple</h3>
+                        <p class="dest-card-desc">Broadway, Central Park, and the electrifying Manhattan skyline.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price"><span class="price-from">From</span><span class="price-value">₹999</span></div>
+                            <div class="dest-rating"><span>⭐</span><span>4.8</span></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Dubai -->
+                <a href="dubai.html" class="dest-card animate-on-scroll" data-category="middle-east" style="text-decoration: none; color: inherit;">
+                    <div class="dest-card-img">
+                        <img src="images/dubai.png" alt="Dubai, UAE" loading="lazy">
+                        <div class="dest-card-overlay"><span class="dest-badge dest-badge-new">✨ New</span></div>
+                    </div>
+                    <div class="dest-card-body">
+                        <div class="dest-card-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Dubai, UAE</span>
+                        </div>
+                        <h3 class="dest-card-title">Futuristic Oasis</h3>
+                        <p class="dest-card-desc">Skyscrapers, desert adventures, and world-class luxury experiences.</p>
+                        <div class="dest-card-footer">
+                            <div class="dest-price"><span class="price-from">From</span><span class="price-value">₹1,499</span></div>
+                            <div class="dest-rating"><span>⭐</span><span>4.9</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="section" style="padding: 60px 0;">
+        <div class="container">
+            <div class="newsletter-card animate-on-scroll" style="text-align: center;">
+                <div class="newsletter-content" style="flex: none; width: 100%;">
+                    <h2>Ready to Start Your Adventure?</h2>
+                    <p style="margin-bottom: 24px;">Choose your destination and let us handle the rest</p>
+                    <a href="booking.html" class="btn btn-primary">Book Your Trip Now →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <span class="logo-icon">✈</span>
+                        <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
+                    </a>
+                    <p>Making your travel dreams come true since 2020. Premium experiences, unforgettable adventures.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <a href="destinations.html">Destinations</a>
+                    <a href="about.html">About Us</a>
+                    <a href="testimonials.html">Reviews</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WorldTourer. All rights reserved. Made with ❤️ for travel lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
