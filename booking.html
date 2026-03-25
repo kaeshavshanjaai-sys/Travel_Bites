@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book your dream vacation with WorldTourer — simple, fast, and secure travel booking.">
-    <title>Book Your Trip — WorldTourer</title>
+    <meta name="description" content="Book your dream vacation with WorldTourer â€“ simple, fast, and secure travel booking.">
+    <title>Book Your Trip â€“ WorldTourer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -187,18 +187,18 @@
                             <label for="destination">Destination</label>
                             <select id="destination" required>
                                 <option value="">Select a destination</option>
-                                <option value="bali">Bali, Indonesia — from ?899</option>
-                                <option value="paris">Paris, France — from ?1,199</option>
-                                <option value="tokyo">Tokyo, Japan — from ?1,349</option>
-                                <option value="santorini">Santorini, Greece — from ?1,099</option>
-                                <option value="newyork">New York, USA — from ?999</option>
-                                <option value="dubai">Dubai, UAE — from ?1,499</option>
-                                <option value="maldives">Maldives — from ?1,899</option>
-                                <option value="rome">Rome, Italy — from ?1,099</option>
-                                <option value="barcelona">Barcelona, Spain — from ?1,049</option>
-                                <option value="amsterdam">Amsterdam, Netherlands — from ?999</option>
-                                <option value="sydney">Sydney, Australia — from ?1,599</option>
-                                <option value="capetown">Cape Town, South Africa — from ?1,249</option>
+                                <option value="bali">Bali, Indonesia â€“ from â‚¹899</option>
+                                <option value="paris">Paris, France â€“ from â‚¹1,199</option>
+                                <option value="tokyo">Tokyo, Japan â€“ from â‚¹1,349</option>
+                                <option value="santorini">Santorini, Greece â€“ from â‚¹1,099</option>
+                                <option value="newyork">New York, USA â€“ from â‚¹999</option>
+                                <option value="dubai">Dubai, UAE â€“ from â‚¹1,499</option>
+                                <option value="maldives">Maldives â€“ from â‚¹1,899</option>
+                                <option value="rome">Rome, Italy â€“ from â‚¹1,099</option>
+                                <option value="barcelona">Barcelona, Spain â€“ from â‚¹1,049</option>
+                                <option value="amsterdam">Amsterdam, Netherlands â€“ from â‚¹999</option>
+                                <option value="sydney">Sydney, Australia â€“ from â‚¹1,599</option>
+                                <option value="capetown">Cape Town, South Africa â€“ from â‚¹1,249</option>
                             </select>
                             <p class="form-error">Please select a destination</p>
                         </div>
@@ -262,12 +262,12 @@
                         <div id="bookingSummary" style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px;">
                             <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--accent-teal);">Booking Summary</h4>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Name</span><br><strong id="sumName">—</strong></div>
-                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Email</span><br><strong id="sumEmail">—</strong></div>
-                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Phone</span><br><strong id="sumPhone">—</strong></div>
-                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Destination</span><br><strong id="sumDest">—</strong></div>
-                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Travel Dates</span><br><strong id="sumDates">—</strong></div>
-                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Package</span><br><strong id="sumPackage">—</strong></div>
+                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Name</span><br><strong id="sumName">â€“</strong></div>
+                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Email</span><br><strong id="sumEmail">â€“</strong></div>
+                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Phone</span><br><strong id="sumPhone">â€“</strong></div>
+                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Destination</span><br><strong id="sumDest">â€“</strong></div>
+                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Travel Dates</span><br><strong id="sumDates">â€“</strong></div>
+                                <div><span style="font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">Package</span><br><strong id="sumPackage">â€“</strong></div>
                             </div>
                         </div>
 
@@ -347,12 +347,12 @@
                         var pkg = document.getElementById('package')?.value || '';
                         var trav = document.getElementById('travelers')?.value || '';
 
-                        var s = document.getElementById('sumName'); if(s) s.textContent = (fn+' '+ln).trim() || '—';
-                        var e = document.getElementById('sumEmail'); if(e) e.textContent = em || '—';
-                        var p = document.getElementById('sumPhone'); if(p) p.textContent = cc + ' ' + ph || '—';
-                        var d = document.getElementById('sumDest'); if(d) d.textContent = dest || '—';
-                        var dates = document.getElementById('sumDates'); if(dates) dates.textContent = (ci && co) ? ci + ' to ' + co : '—';
-                        var pk = document.getElementById('sumPackage'); if(pk) pk.textContent = (pkg + ' · ' + trav) || '—';
+                        var s = document.getElementById('sumName'); if(s) s.textContent = (fn+' '+ln).trim() || 'â€“';
+                        var e = document.getElementById('sumEmail'); if(e) e.textContent = em || 'â€“';
+                        var p = document.getElementById('sumPhone'); if(p) p.textContent = cc + ' ' + ph || 'â€“';
+                        var d = document.getElementById('sumDest'); if(d) d.textContent = dest || 'â€“';
+                        var dates = document.getElementById('sumDates'); if(dates) dates.textContent = (ci && co) ? ci + ' to ' + co : 'â€“';
+                        var pk = document.getElementById('sumPackage'); if(pk) pk.textContent = (pkg + ' â€“ ' + trav) || 'â€“';
                     }, 100);
                 });
             }
