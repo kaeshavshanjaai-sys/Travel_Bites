@@ -31,7 +31,7 @@
             min-height: 100vh;
         }
 
-        /* ─── TOP BAR ─── */
+        /* â”€â”€â”€ TOP BAR â”€â”€â”€ */
         .admin-header {
             background: rgba(13,18,32,0.95);
             border-bottom: 1px solid var(--border);
@@ -110,10 +110,10 @@
         }
         .btn-danger:hover { background: rgba(239,68,68,0.2); }
 
-        /* ─── MAIN ─── */
+        /* â”€â”€â”€ MAIN â”€â”€â”€ */
         .admin-main { padding: 32px; max-width: 1400px; margin: 0 auto; }
 
-        /* ─── STATS ROW ─── */
+        /* â”€â”€â”€ STATS ROW â”€â”€â”€ */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -162,7 +162,7 @@
             margin-top: 4px;
         }
 
-        /* ─── TABLE CARD ─── */
+        /* â”€â”€â”€ TABLE CARD â”€â”€â”€ */
         .table-card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -203,7 +203,7 @@
         .search-box:focus { border-color: var(--coral); }
         .search-box::placeholder { color: var(--muted); }
 
-        /* ─── TABLE ─── */
+        /* â”€â”€â”€ TABLE â”€â”€â”€ */
         .table-wrap { overflow-x: auto; }
 
         table {
@@ -289,7 +289,7 @@
         .action-btn:hover.delete { color: #f87171; background: rgba(239,68,68,0.1); }
         .action-btn:hover.view { color: var(--blue); background: rgba(68,168,255,0.1); }
 
-        /* ─── EMPTY STATE ─── */
+        /* â”€â”€â”€ EMPTY STATE â”€â”€â”€ */
         .empty-state {
             text-align: center;
             padding: 80px 32px;
@@ -308,7 +308,7 @@
         .empty-state h3 { font-family: var(--font-h); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
         .empty-state p { color: var(--muted); font-size: 0.9rem; }
 
-        /* ─── DETAIL MODAL ─── */
+        /* â”€â”€â”€ DETAIL MODAL â”€â”€â”€ */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -359,7 +359,7 @@
         .detail-item-value { font-size: 0.9rem; font-weight: 600; word-break: break-all; }
         .detail-requests { grid-column: span 2; }
 
-        /* ─── TOAST ─── */
+        /* â”€â”€â”€ TOAST â”€â”€â”€ */
         .toast {
             position: fixed;
             bottom: 24px; right: 24px;
@@ -388,10 +388,62 @@
             .detail-requests { grid-column: span 1; }
         }
     </style>
+    <!-- Firebase cross-device sync -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+      import { getDatabase, ref, onValue, set, push, remove, get } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+
+      // ── PASTE YOUR FIREBASE CONFIG HERE ──────────────────────
+      // Go to: https://console.firebase.google.com → Create project → Realtime Database
+      // Then copy your firebaseConfig object here
+      const firebaseConfig = {
+        // apiKey: "YOUR_KEY",
+        // authDomain: "YOUR_PROJECT.firebaseapp.com",
+        // databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+        // projectId: "YOUR_PROJECT",
+      };
+      // ─────────────────────────────────────────────────────────
+
+      window.__fbReady = false;
+      const hasConfig = firebaseConfig.databaseURL;
+
+      if (hasConfig) {
+        try {
+          const app = initializeApp(firebaseConfig);
+          const db = getDatabase(app);
+          const bookingsRef = ref(db, 'wt_bookings');
+
+          // Real-time listener — fires on any device when data changes
+          onValue(bookingsRef, (snapshot) => {
+            const data = snapshot.val();
+            const arr = data ? Object.values(data) : [];
+            // Merge with localStorage (local wins for duplicates)
+            const local = [];
+            try { local.push(...JSON.parse(localStorage.getItem('wt_bookings') || '[]')); } catch(e){}
+            const merged = arr.concat(local.filter(l => !arr.find(f => f.id === l.id)));
+            allBookings = merged.sort((a,b) => b.id - a.id);
+            updateStats();
+            renderTable(allBookings);
+            document.getElementById('fbStatus').textContent = 'Live - Cloud';
+            document.getElementById('fbStatus').style.color = '#4ecdc4';
+          });
+
+          // Expose for delete / clear global
+          window.__fbBookingsRef = bookingsRef;
+          window.__fbSet = set;
+          window.__fbRemove = remove;
+          window.__fbRef = ref;
+          window.__fbDb = db;
+          window.__fbReady = true;
+        } catch(e) {
+          console.warn('Firebase init failed, using localStorage only.', e);
+        }
+      }
+    </script>
 </head>
 <body>
 
-    <!-- ── HEADER ── -->
+    <!-- â”€â”€ HEADER â”€â”€ -->
     <header class="admin-header">
         <div style="display:flex; align-items:center; gap:16px;">
             <div class="admin-logo">
@@ -415,7 +467,7 @@
         </div>
     </header>
 
-    <!-- ── MAIN ── -->
+    <!-- â”€â”€ MAIN â”€â”€ -->
     <main class="admin-main">
 
         <!-- Stats -->
@@ -427,7 +479,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Top Destination</div>
-                <div class="stat-value" style="font-size:1.3rem;" id="statTopDest">—</div>
+                <div class="stat-value" style="font-size:1.3rem;" id="statTopDest">â€”</div>
                 <div class="stat-sub">Most booked</div>
             </div>
             <div class="stat-card">
@@ -437,7 +489,7 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">Latest Booking</div>
-                <div class="stat-value" style="font-size:1rem;" id="statLatest">—</div>
+                <div class="stat-value" style="font-size:1rem;" id="statLatest">â€”</div>
                 <div class="stat-sub" id="statLatestDate">No bookings yet</div>
             </div>
         </div>
@@ -447,7 +499,7 @@
             <div class="table-header">
                 <div class="table-title">All Bookings</div>
                 <div class="table-controls">
-                    <input class="search-box" id="searchBox" placeholder="Search name, email, destination…" oninput="filterTable()">
+                    <input class="search-box" id="searchBox" placeholder="Search name, email, destinationâ€¦" oninput="filterTable()">
                     <select class="search-box" style="width:auto;" id="filterPkg" onchange="filterTable()">
                         <option value="">All Packages</option>
                         <option value="Standard">Standard</option>
@@ -464,14 +516,14 @@
                 <table id="bookingsTable">
                     <thead>
                         <tr>
-                            <th onclick="sortTable('firstName')">Customer ↕</th>
+                            <th onclick="sortTable('firstName')">Customer â†•</th>
                             <th onclick="sortTable('phone')">Phone</th>
-                            <th onclick="sortTable('destination')">Destination ↕</th>
-                            <th onclick="sortTable('checkIn')">Travel Dates ↕</th>
+                            <th onclick="sortTable('destination')">Destination â†•</th>
+                            <th onclick="sortTable('checkIn')">Travel Dates â†•</th>
                             <th onclick="sortTable('travelers')">Travelers</th>
-                            <th onclick="sortTable('package')">Package ↕</th>
+                            <th onclick="sortTable('package')">Package â†•</th>
                             <th>Status</th>
-                            <th onclick="sortTable('bookedAt')">Booked On ↕</th>
+                            <th onclick="sortTable('bookedAt')">Booked On â†•</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -481,16 +533,16 @@
         </div>
     </main>
 
-    <!-- ── DETAIL MODAL ── -->
+    <!-- â”€â”€ DETAIL MODAL â”€â”€ -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal" id="modal">
-            <button class="modal-close" onclick="closeModalDirect()">✕</button>
+            <button class="modal-close" onclick="closeModalDirect()">âœ•</button>
             <h2 id="modalTitle">Booking Details</h2>
             <div class="detail-grid" id="modalBody"></div>
         </div>
     </div>
 
-    <!-- ── TOAST ── -->
+    <!-- TOAST -->
     <div class="toast" id="toast">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         <span id="toastMsg">Done</span>
@@ -515,7 +567,7 @@
         const destCount = {};
         allBookings.forEach(b => { destCount[b.destination] = (destCount[b.destination] || 0) + 1; });
         const topDest = Object.entries(destCount).sort((a,b) => b[1]-a[1])[0];
-        document.getElementById('statTopDest').textContent = topDest ? topDest[0].split(',')[0] : '—';
+        document.getElementById('statTopDest').textContent = topDest ? topDest[0].split(',')[0] : '-';
 
         // Luxury count
         document.getElementById('statLuxury').textContent = allBookings.filter(b => b.package === 'Luxury').length;
@@ -544,8 +596,8 @@
 
         tbody.innerHTML = data.map(b => {
             const pkgClass = b.package === 'Luxury' ? 'pkg-luxury' : b.package === 'Premium' ? 'pkg-premium' : 'pkg-standard';
-            const dates = b.checkIn && b.checkOut ? `${b.checkIn}<br><small style="color:var(--muted)">to ${b.checkOut}</small>` : '—';
-            const bDate = b.bookedAt ? new Date(b.bookedAt).toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '—';
+            const dates = b.checkIn && b.checkOut ? `${b.checkIn}<br><small style="color:var(--muted)">to ${b.checkOut}</small>` : '-';
+            const bDate = b.bookedAt ? new Date(b.bookedAt).toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '-';
             return `
             <tr>
                 <td>
@@ -553,10 +605,10 @@
                     <div class="td-email">${b.email}</div>
                 </td>
                 <td class="td-phone">${b.countryCode} ${b.phone}</td>
-                <td class="td-dest">${b.destination || '—'}</td>
+                <td class="td-dest">${b.destination || '-'}</td>
                 <td class="td-dates">${dates}</td>
-                <td>${b.travelers || '—'}</td>
-                <td><span class="pkg-badge ${pkgClass}">${b.package || '—'}</span></td>
+                <td>${b.travelers || '-'}</td>
+                <td><span class="pkg-badge ${pkgClass}">${b.package || '-'}</span></td>
                 <td><span class="status-badge"><span class="status-dot"></span>Confirmed</span></td>
                 <td class="td-date">${bDate}</td>
                 <td style="white-space:nowrap;">
@@ -596,16 +648,16 @@
     function viewDetail(id) {
         const b = allBookings.find(x => x.id === id);
         if (!b) return;
-        document.getElementById('modalTitle').textContent = `${b.firstName} ${b.lastName} — Booking Details`;
+        document.getElementById('modalTitle').textContent = `${b.firstName} ${b.lastName} â€” Booking Details`;
         document.getElementById('modalBody').innerHTML = `
             <div class="detail-item"><div class="detail-item-label">Full Name</div><div class="detail-item-value">${b.firstName} ${b.lastName}</div></div>
             <div class="detail-item"><div class="detail-item-label">Email</div><div class="detail-item-value">${b.email}</div></div>
             <div class="detail-item"><div class="detail-item-label">Phone</div><div class="detail-item-value" style="color:var(--teal)">${b.countryCode} ${b.phone}</div></div>
             <div class="detail-item"><div class="detail-item-label">Destination</div><div class="detail-item-value">${b.destination}</div></div>
-            <div class="detail-item"><div class="detail-item-label">Check-In</div><div class="detail-item-value">${b.checkIn || '—'}</div></div>
-            <div class="detail-item"><div class="detail-item-label">Check-Out</div><div class="detail-item-value">${b.checkOut || '—'}</div></div>
-            <div class="detail-item"><div class="detail-item-label">Travelers</div><div class="detail-item-value">${b.travelers || '—'}</div></div>
-            <div class="detail-item"><div class="detail-item-label">Package</div><div class="detail-item-value">${b.package || '—'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Check-In</div><div class="detail-item-value">${b.checkIn || '-'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Check-Out</div><div class="detail-item-value">${b.checkOut || '-'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Travelers</div><div class="detail-item-value">${b.travelers || '-'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Package</div><div class="detail-item-value">${b.package || '-'}</div></div>
             <div class="detail-item detail-requests"><div class="detail-item-label">Special Requests</div><div class="detail-item-value" style="font-weight:400;color:var(--muted)">${b.requests || 'None'}</div></div>
             <div class="detail-item"><div class="detail-item-label">Booking ID</div><div class="detail-item-value" style="font-family:monospace;font-size:0.8rem;color:var(--muted)">#${b.id}</div></div>
             <div class="detail-item"><div class="detail-item-label">Booked At</div><div class="detail-item-value" style="font-size:0.82rem">${new Date(b.bookedAt).toLocaleString('en-IN')}</div></div>`;
