@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch cinematic travel films from around the world ‚Äî immerse yourself in stunning destinations before you visit.">
-    <title>Experiences ‚Äî WorldTourer</title>
+    <meta name="description" content="Watch cinematic travel films from around the world ó immerse yourself in stunning destinations before you visit.">
+    <title>Experiences ó WorldTourer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,11 +12,32 @@
 </head>
 <body>
 
-    <!-- ===== NAVBAR ===== -->
+    <!-- Premium Arrow Cursor -->
+<!-- Premium Arrow Cursor -->
+    <div id="cursorArrow">
+        <svg viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="cg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff6b35"/><stop offset="50%" stop-color="#ffd93d"/><stop offset="100%" stop-color="#ff8c42"/></linearGradient>
+                <linearGradient id="cg2" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#ff4500"/><stop offset="100%" stop-color="#ffb830"/></linearGradient>
+            </defs>
+            <path d="M2 2L26 14L14 14L8 28L2 2Z" fill="#0d0d0d" stroke="#0d0d0d" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M5 5L22 13.5L15 13.5L9 25L5 5Z" fill="url(#cg1)" opacity="0.9"/>
+            <path d="M8 8L18 13L15 13L10 21L8 8Z" fill="white" opacity="0.5"/>
+            <path d="M10 12L17 13L12 20L10 12Z" fill="url(#cg2)" opacity="0.75"/>
+        </svg>
+    </div>
+    <!-- Page Transition Overlay -->
+    <div id="pageTransition"></div>
+    <svg width="0" height="0" style="position:absolute">
+        <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff6b6b"/><stop offset="100%" stop-color="#ffd93d"/></linearGradient></defs>
+    </svg>
+
+    <!-- ===== NAVBAR ===== --> ===== -->
     <nav class="navbar scrolled" id="navbar">
+        <div id="scrollProgress"></div>
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <span class="logo-icon">‚úà</span>
+                <span class="logo-icon"><img src="images/logo.png" alt="Logo" style="height:28px; width:auto; border-radius:4px; margin-right:8px; vertical-align:middle;"></span>
                 <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -71,8 +92,8 @@
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                         </button>
                         <div class="video-card-info">
-                            <span class="video-card-tag">ADVENTURE ‚Ä¢ 2:30</span>
-                            <h3 style="font-size: 2rem;">Island Paradise ‚Äî Bali, Indonesia</h3>
+                            <span class="video-card-tag">ADVENTURE ï 2:30</span>
+                            <h3 style="font-size: 2rem;">Island Paradise ó Bali, Indonesia</h3>
                             <p>Discover the hidden gems of Indonesia's most mystical island, from sacred temples to untouched beaches</p>
                         </div>
                     </div>
@@ -101,7 +122,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </button>
                             <div class="video-card-info">
-                                <span class="video-card-tag">ROMANCE ‚Ä¢ 1:45</span>
+                                <span class="video-card-tag">ROMANCE ï 1:45</span>
                                 <h3>Parisian Nights</h3>
                                 <p>A love letter to the City of Light</p>
                             </div>
@@ -120,7 +141,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </button>
                             <div class="video-card-info">
-                                <span class="video-card-tag">CULTURE ‚Ä¢ 2:10</span>
+                                <span class="video-card-tag">CULTURE ï 2:10</span>
                                 <h3>Greek Sunsets</h3>
                                 <p>The magic of Santorini's golden hour</p>
                             </div>
@@ -139,7 +160,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </button>
                             <div class="video-card-info">
-                                <span class="video-card-tag">URBAN ‚Ä¢ 1:55</span>
+                                <span class="video-card-tag">URBAN ï 1:55</span>
                                 <h3>NYC After Dark</h3>
                                 <p>The electric energy of Manhattan at night</p>
                             </div>
@@ -158,7 +179,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </button>
                             <div class="video-card-info">
-                                <span class="video-card-tag">NATURE ‚Ä¢ 3:20</span>
+                                <span class="video-card-tag">NATURE ï 3:20</span>
                                 <h3>Coastal Wonders</h3>
                                 <p>Where ocean meets paradise</p>
                             </div>
@@ -177,7 +198,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </button>
                             <div class="video-card-info">
-                                <span class="video-card-tag">AERIAL ‚Ä¢ 2:45</span>
+                                <span class="video-card-tag">AERIAL ï 2:45</span>
                                 <h3>Forest to Ocean</h3>
                                 <p>A drone journey through untouched nature</p>
                             </div>
@@ -196,7 +217,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </button>
                             <div class="video-card-info">
-                                <span class="video-card-tag">RELAXATION ‚Ä¢ 2:00</span>
+                                <span class="video-card-tag">RELAXATION ï 2:00</span>
                                 <h3>Beach Bliss</h3>
                                 <p>The serenity of crystal clear waters</p>
                             </div>
@@ -216,7 +237,7 @@
         <div class="divider-content">
             <h2 class="divider-title animate-on-scroll">Inspired? Let's Make It Real</h2>
             <p class="divider-desc animate-on-scroll">Book your dream destination today</p>
-            <a href="booking.html" class="btn btn-primary animate-on-scroll">Book Your Trip ‚Üí</a>
+            <a href="booking.html" class="btn btn-primary animate-on-scroll">Book Your Trip </a>
         </div>
     </section>
 
@@ -226,7 +247,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="nav-logo">
-                        <span class="logo-icon">‚úà</span>
+                        <span class="logo-icon"><img src="images/logo.png" alt="Logo" style="height:28px; width:auto; border-radius:4px; margin-right:8px; vertical-align:middle;"></span>
                         <span class="logo-text">World<span class="logo-accent">Tourer</span></span>
                     </a>
                     <p>Making your travel dreams come true since 2020. Premium experiences, unforgettable adventures.</p>
@@ -236,26 +257,26 @@
                         <a href="#" class="social-link" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
                     </div>
                 </div>
-                <div class="footer-links">
+                                <div class="footer-links">
                     <h4>Explore</h4>
+                    <a href="index.html">Home</a>
                     <a href="destinations.html">Destinations</a>
-                    <a href="experiences.html">Travel Films</a>
                     <a href="about.html">About Us</a>
                     <a href="testimonials.html">Reviews</a>
                 </div>
                 <div class="footer-links">
                     <h4>Support</h4>
                     <a href="contact.html">Contact Us</a>
-                    <a href="#">Help Center</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
+                    <a href="contact.html#help">Help Center</a>
+                    <a href="contact.html#privacy">Privacy Policy</a>
+                    <a href="contact.html#terms">Terms of Service</a>
+                </div></div>
             <div class="footer-bottom">
-                <p>&copy; 2026 WorldTourer. All rights reserved. Made with ‚ù§Ô∏è for travel lovers.</p>
+                <p>&copy; 2026 WorldTourer. All rights reserved. Crafted with passion for travel lovers.</p>
             </div>
         </div>
     </footer>
+    <script src="premium.js"></script>
 
     
 </body>

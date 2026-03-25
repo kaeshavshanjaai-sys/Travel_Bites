@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Bookings Dashboard | WorldTourer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #080b14;
+            --bg2: #0d1220;
+            --card: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.08);
+            --coral: #ff6b35;
+            --amber: #ffd93d;
+            --teal: #4ecdc4;
+            --blue: #44a8ff;
+            --text: #e8eaf0;
+            --muted: #6b7280;
+            --font-h: 'Outfit', sans-serif;
+            --font-b: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-b);
+            min-height: 100vh;
+        }
+
+        /* ─── TOP BAR ─── */
+        .admin-header {
+            background: rgba(13,18,32,0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+            padding: 0 32px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-h);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .admin-logo span {
+            background: linear-gradient(135deg, var(--coral), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-badge {
+            background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(255,217,61,0.1));
+            border: 1px solid rgba(255,107,53,0.3);
+            color: var(--coral);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-actions { display: flex; gap: 12px; align-items: center; }
+
+        .btn {
+            padding: 9px 20px;
+            border-radius: 10px;
+            font-family: var(--font-b);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--coral), var(--amber));
+            color: #0d0d0d;
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,53,0.35); }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .btn-outline:hover { border-color: var(--coral); color: var(--coral); }
+
+        .btn-danger {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #f87171;
+        }
+        .btn-danger:hover { background: rgba(239,68,68,0.2); }
+
+        /* ─── MAIN ─── */
+        .admin-main { padding: 32px; max-width: 1400px; margin: 0 auto; }
+
+        /* ─── STATS ROW ─── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--coral), var(--amber));
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-family: var(--font-h);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--coral), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-sub {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ─── TABLE CARD ─── */
+        .table-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 20px 28px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .table-title {
+            font-family: var(--font-h);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .table-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+        .search-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 14px;
+            color: var(--text);
+            font-family: var(--font-b);
+            font-size: 0.85rem;
+            width: 220px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box:focus { border-color: var(--coral); }
+        .search-box::placeholder { color: var(--muted); }
+
+        /* ─── TABLE ─── */
+        .table-wrap { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        thead tr {
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+        }
+        th:hover { color: var(--coral); }
+
+        td {
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            vertical-align: middle;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(255,107,53,0.04); }
+
+        .td-name { font-weight: 600; color: var(--text); }
+        .td-email { color: var(--muted); font-size: 0.82rem; }
+        .td-phone { font-family: monospace; font-size: 0.85rem; color: var(--teal); }
+        .td-dest { font-weight: 600; }
+        .td-dates { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
+
+        .pkg-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .pkg-standard { background: rgba(99,102,241,0.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.25); }
+        .pkg-premium  { background: rgba(255,107,53,0.12); color: var(--coral); border: 1px solid rgba(255,107,53,0.25); }
+        .pkg-luxury   { background: rgba(255,217,61,0.12); color: var(--amber); border: 1px solid rgba(255,217,61,0.25); }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(78,205,196,0.1);
+            color: var(--teal);
+            border: 1px solid rgba(78,205,196,0.25);
+        }
+        .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; }
+
+        .td-date { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 6px;
+            color: var(--muted);
+            transition: all 0.2s;
+        }
+        .action-btn:hover.delete { color: #f87171; background: rgba(239,68,68,0.1); }
+        .action-btn:hover.view { color: var(--blue); background: rgba(68,168,255,0.1); }
+
+        /* ─── EMPTY STATE ─── */
+        .empty-state {
+            text-align: center;
+            padding: 80px 32px;
+        }
+        .empty-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,107,53,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .empty-icon svg { width: 36px; height: 36px; stroke: var(--coral); }
+        .empty-state h3 { font-family: var(--font-h); font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .empty-state p { color: var(--muted); font-size: 0.9rem; }
+
+        /* ─── DETAIL MODAL ─── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal {
+            background: #111827;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.3s cubic-bezier(0.22,1,0.36,1);
+        }
+
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .modal-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: rgba(255,255,255,0.06);
+            border: none;
+            color: var(--text);
+            border-radius: 8px;
+            width: 32px; height: 32px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.12); }
+
+        .modal h2 { font-family: var(--font-h); font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; }
+
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .detail-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+        .detail-item-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+        .detail-item-value { font-size: 0.9rem; font-weight: 600; word-break: break-all; }
+        .detail-requests { grid-column: span 2; }
+
+        /* ─── TOAST ─── */
+        .toast {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            background: #1a2035;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: 0.88rem;
+            color: var(--text);
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .toast svg { stroke: var(--teal); }
+
+        @media (max-width: 900px) {
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .admin-main { padding: 20px; }
+        }
+        @media (max-width: 600px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .detail-requests { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── HEADER ── -->
+    <header class="admin-header">
+        <div style="display:flex; align-items:center; gap:16px;">
+            <div class="admin-logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#ag)" stroke-width="1.75">
+                    <defs><linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ffd93d"/></linearGradient></defs>
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.16h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <div>World<span>Tourer</span></div>
+            </div>
+            <div class="admin-badge">Admin</div>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-outline" onclick="exportCSV()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Export CSV
+            </button>
+            <a href="index.html" class="btn btn-primary" style="text-decoration:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Main Site
+            </a>
+        </div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main class="admin-main">
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-label">Total Bookings</div>
+                <div class="stat-value" id="statTotal">0</div>
+                <div class="stat-sub">All time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Top Destination</div>
+                <div class="stat-value" style="font-size:1.3rem;" id="statTopDest">—</div>
+                <div class="stat-sub">Most booked</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Luxury Packages</div>
+                <div class="stat-value" id="statLuxury">0</div>
+                <div class="stat-sub">High-value trips</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Latest Booking</div>
+                <div class="stat-value" style="font-size:1rem;" id="statLatest">—</div>
+                <div class="stat-sub" id="statLatestDate">No bookings yet</div>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-card">
+            <div class="table-header">
+                <div class="table-title">All Bookings</div>
+                <div class="table-controls">
+                    <input class="search-box" id="searchBox" placeholder="Search name, email, destination…" oninput="filterTable()">
+                    <select class="search-box" style="width:auto;" id="filterPkg" onchange="filterTable()">
+                        <option value="">All Packages</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Luxury">Luxury</option>
+                    </select>
+                    <button class="btn btn-danger" onclick="clearAll()" style="font-size:0.8rem; padding:8px 14px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                        Clear All
+                    </button>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table id="bookingsTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable('firstName')">Customer ↕</th>
+                            <th onclick="sortTable('phone')">Phone</th>
+                            <th onclick="sortTable('destination')">Destination ↕</th>
+                            <th onclick="sortTable('checkIn')">Travel Dates ↕</th>
+                            <th onclick="sortTable('travelers')">Travelers</th>
+                            <th onclick="sortTable('package')">Package ↕</th>
+                            <th>Status</th>
+                            <th onclick="sortTable('bookedAt')">Booked On ↕</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- ── DETAIL MODAL ── -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModalDirect()">✕</button>
+            <h2 id="modalTitle">Booking Details</h2>
+            <div class="detail-grid" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ── TOAST ── -->
+    <div class="toast" id="toast">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="toastMsg">Done</span>
+    </div>
+
+    <script>
+    let allBookings = [];
+    let sortKey = 'bookedAt';
+    let sortAsc = false;
+
+    function load() {
+        try { allBookings = JSON.parse(localStorage.getItem('wt_bookings') || '[]'); }
+        catch(e) { allBookings = []; }
+        updateStats();
+        renderTable(allBookings);
+    }
+
+    function updateStats() {
+        document.getElementById('statTotal').textContent = allBookings.length;
+
+        // Top destination
+        const destCount = {};
+        allBookings.forEach(b => { destCount[b.destination] = (destCount[b.destination] || 0) + 1; });
+        const topDest = Object.entries(destCount).sort((a,b) => b[1]-a[1])[0];
+        document.getElementById('statTopDest').textContent = topDest ? topDest[0].split(',')[0] : '—';
+
+        // Luxury count
+        document.getElementById('statLuxury').textContent = allBookings.filter(b => b.package === 'Luxury').length;
+
+        // Latest booking
+        if (allBookings.length > 0) {
+            const latest = [...allBookings].sort((a,b) => b.id - a.id)[0];
+            document.getElementById('statLatest').textContent = latest.firstName + ' ' + latest.lastName;
+            document.getElementById('statLatestDate').textContent = new Date(latest.bookedAt).toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+        }
+    }
+
+    function renderTable(data) {
+        const tbody = document.getElementById('bookingsBody');
+        if (data.length === 0) {
+            tbody.innerHTML = `
+                <tr><td colspan="9">
+                    <div class="empty-state">
+                        <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg></div>
+                        <h3>No bookings yet</h3>
+                        <p>When customers complete a booking, they'll appear here.</p>
+                    </div>
+                </td></tr>`;
+            return;
+        }
+
+        tbody.innerHTML = data.map(b => {
+            const pkgClass = b.package === 'Luxury' ? 'pkg-luxury' : b.package === 'Premium' ? 'pkg-premium' : 'pkg-standard';
+            const dates = b.checkIn && b.checkOut ? `${b.checkIn}<br><small style="color:var(--muted)">to ${b.checkOut}</small>` : '—';
+            const bDate = b.bookedAt ? new Date(b.bookedAt).toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '—';
+            return `
+            <tr>
+                <td>
+                    <div class="td-name">${b.firstName} ${b.lastName}</div>
+                    <div class="td-email">${b.email}</div>
+                </td>
+                <td class="td-phone">${b.countryCode} ${b.phone}</td>
+                <td class="td-dest">${b.destination || '—'}</td>
+                <td class="td-dates">${dates}</td>
+                <td>${b.travelers || '—'}</td>
+                <td><span class="pkg-badge ${pkgClass}">${b.package || '—'}</span></td>
+                <td><span class="status-badge"><span class="status-dot"></span>Confirmed</span></td>
+                <td class="td-date">${bDate}</td>
+                <td style="white-space:nowrap;">
+                    <button class="action-btn view" onclick="viewDetail(${b.id})" title="View details">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                    <button class="action-btn delete" onclick="deleteBooking(${b.id})" title="Delete">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                    </button>
+                </td>
+            </tr>`;
+        }).join('');
+    }
+
+    function filterTable() {
+        const q = document.getElementById('searchBox').value.toLowerCase();
+        const pkg = document.getElementById('filterPkg').value;
+        const filtered = allBookings.filter(b => {
+            const matches = `${b.firstName} ${b.lastName} ${b.email} ${b.destination} ${b.phone}`.toLowerCase().includes(q);
+            const pkgMatch = !pkg || b.package === pkg;
+            return matches && pkgMatch;
+        });
+        renderTable(filtered);
+    }
+
+    function sortTable(key) {
+        if (sortKey === key) sortAsc = !sortAsc;
+        else { sortKey = key; sortAsc = true; }
+        allBookings.sort((a, b) => {
+            const av = (a[key] || '').toString().toLowerCase();
+            const bv = (b[key] || '').toString().toLowerCase();
+            return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+        });
+        filterTable();
+    }
+
+    function viewDetail(id) {
+        const b = allBookings.find(x => x.id === id);
+        if (!b) return;
+        document.getElementById('modalTitle').textContent = `${b.firstName} ${b.lastName} — Booking Details`;
+        document.getElementById('modalBody').innerHTML = `
+            <div class="detail-item"><div class="detail-item-label">Full Name</div><div class="detail-item-value">${b.firstName} ${b.lastName}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Email</div><div class="detail-item-value">${b.email}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Phone</div><div class="detail-item-value" style="color:var(--teal)">${b.countryCode} ${b.phone}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Destination</div><div class="detail-item-value">${b.destination}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Check-In</div><div class="detail-item-value">${b.checkIn || '—'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Check-Out</div><div class="detail-item-value">${b.checkOut || '—'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Travelers</div><div class="detail-item-value">${b.travelers || '—'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Package</div><div class="detail-item-value">${b.package || '—'}</div></div>
+            <div class="detail-item detail-requests"><div class="detail-item-label">Special Requests</div><div class="detail-item-value" style="font-weight:400;color:var(--muted)">${b.requests || 'None'}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Booking ID</div><div class="detail-item-value" style="font-family:monospace;font-size:0.8rem;color:var(--muted)">#${b.id}</div></div>
+            <div class="detail-item"><div class="detail-item-label">Booked At</div><div class="detail-item-value" style="font-size:0.82rem">${new Date(b.bookedAt).toLocaleString('en-IN')}</div></div>`;
+        document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    function closeModal(e) { if (e.target === document.getElementById('modalOverlay')) closeModalDirect(); }
+    function closeModalDirect() { document.getElementById('modalOverlay').classList.remove('open'); }
+
+    function deleteBooking(id) {
+        if (!confirm('Delete this booking?')) return;
+        allBookings = allBookings.filter(b => b.id !== id);
+        localStorage.setItem('wt_bookings', JSON.stringify(allBookings));
+        filterTable();
+        updateStats();
+        showToast('Booking deleted');
+    }
+
+    function clearAll() {
+        if (!confirm('Delete ALL bookings? This cannot be undone.')) return;
+        localStorage.removeItem('wt_bookings');
+        allBookings = [];
+        renderTable([]);
+        updateStats();
+        showToast('All bookings cleared');
+    }
+
+    function exportCSV() {
+        if (allBookings.length === 0) { showToast('No bookings to export'); return; }
+        const headers = ['ID','First Name','Last Name','Email','Country Code','Phone','Destination','Check-In','Check-Out','Travelers','Package','Special Requests','Booked At'];
+        const rows = allBookings.map(b => [b.id, b.firstName, b.lastName, b.email, b.countryCode, b.phone, b.destination, b.checkIn, b.checkOut, b.travelers, b.package, (b.requests||'').replace(/,/g,'|'), new Date(b.bookedAt).toLocaleString('en-IN')]);
+        const csv = [headers, ...rows].map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = `worldtourer_bookings_${Date.now()}.csv`; a.click();
+        URL.revokeObjectURL(url);
+        showToast('CSV downloaded!');
+    }
+
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        document.getElementById('toastMsg').textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    // Listen for cross-tab localStorage changes to update live
+    window.addEventListener('storage', e => {
+        if (e.key === 'wt_bookings') {
+            load();
+            showToast('Live Update: New booking activity!');
+        }
+    });
+
+    load();
+    </script>
+</body>
+</html>
