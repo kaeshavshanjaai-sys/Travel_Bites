@@ -2445,10 +2445,21 @@ button {
 }
 
 .package-features li {
-    padding: 8px 0;
+    position: relative;
+    padding: 8px 0 8px 24px;
     color: var(--text-secondary);
     font-size: 0.9rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.package-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-amber);
+    font-size: 1rem;
 }
 
 .package-features li:last-child {
